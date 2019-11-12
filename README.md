@@ -61,7 +61,7 @@ This function should assume the data is formatted similarly to the attached
 
 ### What to turn in
 
--   A class definition `Employees` defined as above
+-   A class definition `Employee` defined as above
 -   A function or generator `read_employees` defined as above
 -   A few basic `assert` tests of `read_employees`
 -   A brief (paragraph or so) description of your approach and any challenges
