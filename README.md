@@ -8,7 +8,7 @@ Define a class `Rectangle` which stores the bottom-left coordinates (`x0`, `y0`)
 and top-right coordinates (`x1`, `y1`) for each instance. The class should have
 the following methods:
 
-    def __init__(self, x0: float, y0: float, x1: float, x2: float):
+    def __init__(self, x0: float, y0: float, x1: float, y1: float):
         ...
 
     def area(self) -> float:
