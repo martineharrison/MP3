@@ -1,0 +1,68 @@
+PART 1:
+
+class Rectangle: 
+    def __init__(self, x0: float, y0: float, x1: float, y1: float):
+        self.x0 = x0
+        self.y0 = y0
+        self.x1 = x1
+        self.y1 = y1
+
+    def area(self) -> float:
+        """Returns the area of the rectangle."""
+        width = self.x1 - self.x0 
+        height = self.y1 - self.y0 
+        return (width * height)
+
+    def contains(self, x: float, y: float) -> bool:
+        """Returns true if the point (x, y) falls within the rectangle"""
+        if x >= self.x0 and x <= self.x1 and y >= self.y0 and y <= self.y1:
+            return True
+        else:
+            return False
+
+r1 = Rectangle(100, 100, 200, 200)
+assert r1.contains(100, 100)
+assert r1.area() == 10000
+assert r1.contains(300, 300) is False
+assert r1.contains(0, 0) is False
+
+
+#For this portion I began with the boolean in contains(). As I expanded upon the assignment, I went back and continued to 
+#augment what I had already written in contains(). It took me a while to remember basic geometry, but eventually I caught on
+#to the fact that width should be x1-x0 and height should be y1-y0. At that point, I was able to get the code working and 
+#added some assert tests. Also worth noting that Sam and I collaborated on this assignment a bit. 
+
+PART 2:
+
+from typing import Iterator
+employee_directory = []
+
+class Employee:
+    def __init__(self, name: str, title: str, employee_id: int):
+        self.name = name
+        self.title = title
+        self.employee_id = employee_id
+
+def read_employees(path: str) -> Iterator[Employee]:
+  with open(path) as source:
+        while source:
+            name = source.readline().rstrip()
+            title = source.readline().rstrip()
+            employee_id = source.readline().rstrip()
+            empty_line = source.readline().rstrip()
+            yield Employee(name, title, employee_id)
+
+def show_employee(self): 
+    print(self.name, self.title, self.employee_id)
+    
+g = read_employees("employees.txt")
+print(next(g))
+print(next(g))
+print(next(g))
+print(next(g))
+
+#Here, I initially defined the class and opened employees.txt as a read-only. Then, as I worked on the generator that would
+#iterate over the file's contents, I had difficulty integrating it with the source material. Instead of defining multiple
+#functions that would perform different tasks, I tried to combine what was necessary into read_employees. 
+#Also worth noting that Sam and I collaborated on this assignment a bit.
+
